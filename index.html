@@ -36,30 +36,39 @@
     font-size: 15px;
     line-height: 1.5;
     min-height: 100vh;
+    -webkit-text-size-adjust: 100%;
   }
 
-  /* TOP BAR */
+  /* ── TOP BAR ── */
   .topbar {
     background: var(--navy-800);
-    padding: 0 2rem;
-    height: 54px;
+    padding: 0 1rem;
+    min-height: 54px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 0.75rem;
     border-bottom: 2px solid var(--orange);
     position: sticky;
     top: 0;
     z-index: 100;
+    flex-wrap: wrap;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
   }
 
   .topbar-brand {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.5rem;
     font-family: 'DM Mono', monospace;
-    font-size: 0.72rem;
+    font-size: 0.62rem;
     color: var(--white);
-    letter-spacing: 0.07em;
+    letter-spacing: 0.05em;
+    flex: 1;
+    min-width: 0;
+    flex-wrap: wrap;
+    line-height: 1.5;
   }
 
   .topbar-dot {
@@ -69,21 +78,28 @@
     flex-shrink: 0;
   }
 
+  .topbar-studio {
+    color: var(--orange-lt);
+    white-space: nowrap;
+  }
+
   .topbar-pill {
     background: var(--orange);
     color: #fff;
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     font-family: 'DM Mono', monospace;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 0.2rem 0.65rem;
+    padding: 0.18rem 0.6rem;
     border-radius: 100px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
-  /* HERO */
+  /* ── HERO ── */
   .hero {
     background: var(--navy-800);
-    padding: 2.8rem 2rem 2.4rem;
+    padding: 2rem 1.25rem 2rem;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -109,40 +125,38 @@
   .hero-eyebrow {
     display: inline-block;
     font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--orange-lt);
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.75rem;
     position: relative;
   }
 
   .hero h1 {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    font-size: clamp(1.6rem, 6vw, 3rem);
     color: var(--white);
-    line-height: 1.1;
+    line-height: 1.15;
     position: relative;
-    margin-bottom: 0.6rem;
+    margin-bottom: 0.5rem;
   }
 
-  .hero h1 em {
-    font-style: italic;
-    color: var(--orange-lt);
-  }
+  .hero h1 em { font-style: italic; color: var(--orange-lt); }
 
   .hero-sub {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     color: var(--grey-400);
     position: relative;
     letter-spacing: 0.02em;
+    line-height: 1.6;
   }
 
-  /* LAYOUT */
+  /* ── PAGE ── */
   .page {
     max-width: 1060px;
     margin: 0 auto;
-    padding: 2.2rem 1.5rem 4rem;
+    padding: 1.5rem 1rem 3rem;
     animation: fadeUp 0.4s ease both;
   }
 
@@ -151,36 +165,34 @@
     to   { opacity: 1; transform: translateY(0); }
   }
 
+  /* ── FORM GRID ── */
   .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-    margin-bottom: 0;
+    gap: 1rem;
   }
 
-  @media (max-width: 680px) { .form-grid { grid-template-columns: 1fr; } }
-
-  /* PANELS */
+  /* ── PANELS ── */
   .panel {
     background: var(--white);
     border: 1px solid var(--grey-200);
     border-radius: 10px;
-    padding: 1.5rem;
+    padding: 1.25rem;
     box-shadow: 0 1px 4px rgba(11,22,41,0.06);
   }
 
   .panel-label {
     display: flex;
     align-items: center;
-    gap: 0.55rem;
+    gap: 0.5rem;
     font-family: 'DM Mono', monospace;
-    font-size: 0.58rem;
+    font-size: 0.55rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--navy-500);
     font-weight: 500;
-    margin-bottom: 1.2rem;
-    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.7rem;
     border-bottom: 1px solid var(--grey-200);
   }
 
@@ -195,16 +207,16 @@
     border: 1px solid var(--navy-600);
   }
 
-  /* FIELDS */
-  .field { margin-bottom: 0.95rem; }
+  /* ── FIELDS ── */
+  .field { margin-bottom: 0.85rem; }
   .field:last-of-type { margin-bottom: 0; }
 
   .field label {
     display: block;
-    font-size: 0.73rem;
+    font-size: 0.72rem;
     font-weight: 500;
     color: var(--text-lt);
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.28rem;
   }
 
   .field input,
@@ -214,9 +226,9 @@
     border: 1.5px solid var(--grey-200);
     border-radius: 7px;
     color: var(--text);
-    padding: 0.58rem 0.85rem;
+    padding: 0.62rem 0.85rem;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.88rem;
+    font-size: 1rem; /* 16px evita zoom iOS */
     outline: none;
     transition: border-color 0.16s, background 0.16s, box-shadow 0.16s;
     -webkit-appearance: none;
@@ -233,62 +245,60 @@
   .field input::placeholder { color: var(--grey-400); }
   select option { background: #fff; color: var(--text); }
 
-  /* ATECO BOX */
+  /* ── ATECO BOX ── */
   .ateco-box {
     background: var(--navy-800);
     border: 1px solid var(--navy-600);
     border-radius: 7px;
-    padding: 0.7rem 0.9rem;
+    padding: 0.65rem 0.85rem;
     font-family: 'DM Mono', monospace;
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     color: var(--grey-500);
     margin-top: 0.5rem;
-    min-height: 48px;
+    min-height: 46px;
     line-height: 1.8;
-    transition: all 0.2s;
   }
 
   .ateco-box .val { color: var(--grey-200); }
-  .ateco-box .coeff-hi { color: var(--orange-lt); font-size: 0.95rem; font-weight: 500; }
+  .ateco-box .coeff-hi { color: var(--orange-lt); font-size: 0.9rem; font-weight: 500; }
 
-  /* BUTTON */
+  /* ── BUTTON ── */
   .btn-calc {
     width: 100%;
     background: var(--orange);
     color: #fff;
     border: none;
     border-radius: 8px;
-    padding: 0.82rem 1.5rem;
+    padding: 0.85rem 1.5rem;
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.03em;
     cursor: pointer;
     transition: background 0.16s, box-shadow 0.16s, transform 0.1s;
-    margin-top: 1.1rem;
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     box-shadow: 0 2px 12px rgba(240,90,26,0.28);
+    touch-action: manipulation;
   }
 
   .btn-calc:hover { background: var(--orange-lt); box-shadow: 0 4px 20px rgba(240,90,26,0.38); }
-  .btn-calc:active { transform: scale(0.99); }
+  .btn-calc:active { transform: scale(0.98); }
 
-  /* RESULTS */
+  /* ── RESULTS GRID ── */
   .results-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-    margin-top: 1.2rem;
+    gap: 1rem;
+    margin-top: 1rem;
   }
-
-  @media (max-width: 680px) { .results-grid { grid-template-columns: 1fr; } }
 
   .res-card {
     border-radius: 10px;
-    padding: 1.4rem;
+    padding: 1.25rem;
     opacity: 0;
     transform: translateY(12px);
     transition: opacity 0.32s ease, transform 0.32s ease;
@@ -312,8 +322,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 1.1rem;
-    padding-bottom: 0.8rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    gap: 0.5rem;
   }
 
   .startup .res-header { border-bottom: 1px solid var(--navy-600); }
@@ -321,12 +332,13 @@
 
   .phase-tag {
     font-family: 'DM Mono', monospace;
-    font-size: 0.57rem;
-    letter-spacing: 0.13em;
+    font-size: 0.55rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 0.18rem 0.58rem;
+    padding: 0.18rem 0.55rem;
     border-radius: 100px;
     font-weight: 500;
+    line-height: 1.4;
   }
 
   .startup .phase-tag {
@@ -343,7 +355,8 @@
 
   .aliq-badge {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    flex-shrink: 0;
   }
 
   .startup .aliq-badge { color: var(--orange-lt); }
@@ -353,23 +366,24 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 0.38rem 0;
-    gap: 1rem;
+    padding: 0.36rem 0;
+    gap: 0.5rem;
   }
 
   .startup .res-row { border-bottom: 1px solid rgba(255,255,255,0.05); }
   .regime .res-row  { border-bottom: 1px solid var(--grey-100); }
   .res-row:last-child { border-bottom: none !important; }
 
-  .res-row .lbl { font-size: 0.77rem; }
+  .res-row .lbl { font-size: 0.74rem; flex: 1; }
   .startup .res-row .lbl { color: var(--grey-400); }
   .regime .res-row .lbl  { color: var(--text-lt); }
 
   .res-row .val {
     font-family: 'DM Mono', monospace;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     font-weight: 500;
     white-space: nowrap;
+    text-align: right;
   }
 
   .startup .res-row .val { color: var(--grey-200); }
@@ -377,27 +391,27 @@
 
   .res-row.tot {
     margin-top: 0.4rem;
-    padding-top: 0.9rem;
+    padding-top: 0.85rem;
     border-top: 1.5px solid !important;
   }
 
   .startup .tot { border-color: var(--navy-500) !important; }
   .regime  .tot { border-color: var(--grey-300) !important; }
 
-  .res-row.tot .lbl { font-weight: 600; font-size: 0.8rem; }
+  .res-row.tot .lbl { font-weight: 600; font-size: 0.78rem; }
   .startup .tot .lbl { color: var(--white); }
   .regime  .tot .lbl { color: var(--text); }
 
-  .startup .tot .val { color: var(--orange-lt); font-size: 1rem; }
-  .regime  .tot .val { color: var(--navy-500); font-size: 1rem; }
+  .startup .tot .val { color: var(--orange-lt); font-size: 0.95rem; }
+  .regime  .tot .val { color: var(--navy-500); font-size: 0.95rem; }
 
-  /* SAVING BANNER */
+  /* ── SAVING BANNER ── */
   .saving-banner {
-    margin-top: 1.2rem;
+    margin-top: 1rem;
     background: var(--navy-800);
     border: 1px solid var(--orange-bd);
     border-radius: 10px;
-    padding: 1.2rem 1.5rem;
+    padding: 1.1rem 1.25rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -413,68 +427,71 @@
 
   .saving-label {
     font-family: 'DM Mono', monospace;
-    font-size: 0.58rem;
-    letter-spacing: 0.16em;
+    font-size: 0.57rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
     color: var(--orange-lt);
-    margin-bottom: 0.2rem;
+    margin-bottom: 0.15rem;
   }
 
-  .saving-desc { font-size: 0.76rem; color: var(--grey-500); }
+  .saving-desc { font-size: 0.74rem; color: var(--grey-500); }
 
-  .saving-right { text-align: right; }
+  .saving-right { text-align: right; flex-shrink: 0; }
 
   .saving-amount {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem;
+    font-size: 1.7rem;
     color: var(--orange-lt);
   }
 
   .saving-sub {
     font-family: 'DM Mono', monospace;
-    font-size: 0.58rem;
+    font-size: 0.57rem;
     color: var(--grey-500);
     margin-top: 0.05rem;
   }
 
-  /* SECTION HEAD */
+  /* ── SECTION HEAD ── */
   .section-head {
     display: flex;
     align-items: center;
     gap: 0.8rem;
-    margin: 2.4rem 0 1rem;
+    margin: 2rem 0 0.9rem;
   }
 
   .section-head h2 {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     color: var(--navy-800);
     white-space: nowrap;
   }
 
   .section-line { flex: 1; height: 1px; background: var(--grey-200); }
 
-  /* TABLE */
+  /* ── TABLE ── */
   .table-wrap {
     background: var(--white);
     border: 1px solid var(--grey-200);
     border-radius: 10px;
     overflow: hidden;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     box-shadow: 0 1px 3px rgba(11,22,41,0.04);
   }
 
-  table { width: 100%; border-collapse: collapse; font-size: 0.79rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.78rem; min-width: 420px; }
 
   thead th {
     background: var(--navy-800);
     color: var(--grey-400);
     font-family: 'DM Mono', monospace;
-    font-size: 0.58rem;
-    letter-spacing: 0.13em;
+    font-size: 0.57rem;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    padding: 0.65rem 1rem;
+    padding: 0.65rem 0.85rem;
     text-align: left;
     font-weight: 400;
+    white-space: nowrap;
   }
 
   tbody tr { transition: background 0.1s; }
@@ -482,7 +499,7 @@
   tbody tr.hl td { background: rgba(240,90,26,0.05); }
 
   tbody td {
-    padding: 0.58rem 1rem;
+    padding: 0.55rem 0.85rem;
     border-bottom: 1px solid var(--grey-100);
     color: var(--text);
     vertical-align: middle;
@@ -496,27 +513,27 @@
     color: var(--orange-lt);
     border: 1px solid var(--navy-600);
     border-radius: 4px;
-    padding: 0.1rem 0.48rem;
+    padding: 0.1rem 0.45rem;
     font-family: 'DM Mono', monospace;
-    font-size: 0.76rem;
+    font-size: 0.75rem;
     font-weight: 500;
   }
 
   .codici-cell {
     font-family: 'DM Mono', monospace;
-    font-size: 0.67rem;
+    font-size: 0.65rem;
     color: var(--grey-500);
   }
 
-  /* NOTE */
+  /* ── NOTE ── */
   .note {
-    margin-top: 1.4rem;
+    margin-top: 1.25rem;
     background: var(--white);
     border: 1px solid var(--grey-200);
     border-left: 3px solid var(--orange);
     border-radius: 8px;
-    padding: 0.9rem 1.2rem;
-    font-size: 0.74rem;
+    padding: 0.9rem 1rem;
+    font-size: 0.73rem;
     color: var(--text-lt);
     line-height: 1.75;
   }
@@ -524,24 +541,127 @@
   .note strong {
     color: var(--orange);
     font-family: 'DM Mono', monospace;
-    font-size: 0.68rem;
+    font-size: 0.67rem;
   }
 
+  /* ════════════════════════════
+     RESPONSIVE — TABLET 680px
+  ════════════════════════════ */
+  @media (max-width: 680px) {
+    .form-grid { grid-template-columns: 1fr; }
+    .results-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ════════════════════════════
+     RESPONSIVE — MOBILE 480px
+  ════════════════════════════ */
   @media (max-width: 480px) {
-    thead th:nth-child(4), tbody td:nth-child(4) { display: none; }
+
+    /* Topbar compatta */
+    .topbar {
+      padding: 0.5rem 0.9rem;
+      min-height: auto;
+    }
+
+    .topbar-brand {
+      font-size: 0.58rem;
+      gap: 0.35rem;
+    }
+
+    /* Hero ridotto */
+    .hero {
+      padding: 1.5rem 1rem 1.6rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.45rem, 7vw, 2rem);
+    }
+
+    .hero-sub {
+      font-size: 0.72rem;
+    }
+
+    /* Page padding ridotto */
+    .page {
+      padding: 1rem 0.75rem 2.5rem;
+    }
+
+    /* Panel più compatto */
+    .panel {
+      padding: 1rem;
+    }
+
+    /* Input touch-friendly */
+    .field input,
+    .field select {
+      padding: 0.72rem 0.85rem;
+      font-size: 1rem;
+    }
+
+    /* Result cards: colonna singola già attiva, ottimizza spaziatura */
+    .res-card {
+      padding: 1rem;
+    }
+
+    .res-row .lbl { font-size: 0.7rem; }
+    .res-row .val { font-size: 0.75rem; }
+
+    /* Saving banner: stack verticale */
+    .saving-banner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.6rem;
+      padding: 1rem;
+    }
+
+    .saving-right { text-align: left; }
+
+    .saving-amount { font-size: 1.5rem; }
+
+    /* Tabella: scroll orizzontale + nascondi colonna imponibile */
+    .table-wrap { border-radius: 8px; }
+
+    table { min-width: 340px; font-size: 0.73rem; }
+
+    thead th:nth-child(4),
+    tbody td:nth-child(4) { display: none; }
+
+    thead th { padding: 0.55rem 0.65rem; font-size: 0.52rem; }
+    tbody td { padding: 0.5rem 0.65rem; }
+
+    /* Note */
+    .note { font-size: 0.7rem; padding: 0.8rem 0.85rem; }
+
+    /* Section head */
+    .section-head h2 { font-size: 1rem; }
+  }
+
+  /* ════════════════════════════
+     RESPONSIVE — EXTRA SMALL 360px
+  ════════════════════════════ */
+  @media (max-width: 360px) {
+    .topbar-brand { font-size: 0.52rem; }
+    .hero h1 { font-size: 1.35rem; }
+    .page { padding: 0.85rem 0.65rem 2rem; }
+    .panel { padding: 0.85rem; }
+    .res-row .lbl { font-size: 0.65rem; }
+    .res-row .val { font-size: 0.7rem; }
   }
 </style>
 </head>
 <body>
 
+<!-- TOP BAR -->
 <div class="topbar">
   <div class="topbar-brand">
     <div class="topbar-dot"></div>
-    REGIME FORFETTARIO &nbsp;·&nbsp; CALCOLATORE FISCALE &nbsp;·&nbsp; <span style="color:var(--orange-lt)">Realizzato da Studio Punto Diritti</span>
+    REGIME FORFETTARIO &nbsp;·&nbsp; CALCOLATORE FISCALE &nbsp;·&nbsp;
+    <span class="topbar-studio">Realizzato da Studio Punto Diritti</span>
   </div>
   <div class="topbar-pill">2025–2026</div>
 </div>
 
+<!-- HERO -->
 <div class="hero">
   <div class="hero-eyebrow">Partita IVA · Flat Tax</div>
   <h1>Calcola <em>imposta e contributi</em><br>in regime forfettario</h1>
@@ -550,6 +670,7 @@
 
 <div class="page">
 
+  <!-- FORM -->
   <div class="form-grid">
 
     <div class="panel">
@@ -560,7 +681,7 @@
 
       <div class="field">
         <label>Fatturato lordo annuo previsto (€)</label>
-        <input type="number" id="fatturato" placeholder="es. 50.000" min="0" max="85000">
+        <input type="number" id="fatturato" placeholder="es. 50000" min="0" max="85000" inputmode="numeric">
       </div>
 
       <div class="field">
@@ -591,17 +712,16 @@
         <select id="annoInizio">
           <option value="2025">2025</option>
           <option value="2026" selected>2026</option>
-          <option value="2026">2026</option>
         </select>
       </div>
 
       <div class="field">
-        <label>Altro reddito imponibile (€) <span style="font-size:0.68rem;font-weight:400;color:var(--grey-400)">dipendente / pensione</span></label>
-        <input type="number" id="altroReddito" placeholder="0" min="0" value="0">
+        <label>Altro reddito imponibile (€) <span style="font-size:0.67rem;font-weight:400;color:var(--grey-400)">dipendente / pensione</span></label>
+        <input type="number" id="altroReddito" placeholder="0" min="0" value="0" inputmode="numeric">
       </div>
 
       <button class="btn-calc" onclick="calcola()">
-        <svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="4,2 14,8 4,14"/></svg>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="4,2 14,8 4,14"/></svg>
         Calcola
       </button>
     </div>
@@ -693,7 +813,6 @@ const ATECO_DATA = [
   { id:"Y", label:"Distributori carburante", codici:"47.3", coeff:0.40 },
 ];
 
-// Populate select
 const sel = document.getElementById('ateco');
 ATECO_DATA.forEach(a => {
   const o = document.createElement('option');
@@ -702,7 +821,6 @@ ATECO_DATA.forEach(a => {
   sel.appendChild(o);
 });
 
-// Populate table
 const tbody = document.getElementById('atecoTableBody');
 ATECO_DATA.forEach(a => {
   const imp = (50000 * a.coeff).toLocaleString('it-IT', {maximumFractionDigits:0});
@@ -721,7 +839,7 @@ document.getElementById('ateco').addEventListener('change', function() {
   const a = ATECO_DATA.find(x => x.id === this.value);
   const box = document.getElementById('atecoInfo');
   if (a) {
-    box.innerHTML = `Codici: <span class="val">${a.codici}</span>&ensp;·&ensp;Coefficiente: <span class="coeff-hi">${(a.coeff*100).toFixed(0)}%</span>&ensp;·&ensp;Su 50.000 €: <span class="val">€ ${(50000*a.coeff).toLocaleString('it-IT')}</span>`;
+    box.innerHTML = `Codici: <span class="val">${a.codici}</span>&ensp;·&ensp;Coeff.: <span class="coeff-hi">${(a.coeff*100).toFixed(0)}%</span>&ensp;·&ensp;Su 50k€: <span class="val">€ ${(50000*a.coeff).toLocaleString('it-IT')}</span>`;
     document.querySelectorAll('tbody tr').forEach(r => r.classList.remove('hl'));
     const row = document.querySelector(`tbody tr[data-id="${a.id}"]`);
     if (row) { row.classList.add('hl'); row.scrollIntoView({behavior:'smooth', block:'nearest'}); }
@@ -751,8 +869,8 @@ function calcPeriodo(fatturato, coeff, gestione, isStartup) {
   const contributi = gestione !== 'altra_cassa' ? Math.max(redditoBrutto * aliqCont, minC) : 0;
   const reddImp = Math.max(0, redditoBrutto - contributi);
   const imposta = reddImp * aliqImp;
-  const totale = imposta + contributi;
-  const netto = fatturato - totale;
+  const totale  = imposta + contributi;
+  const netto   = fatturato - totale;
   return { redditoBrutto, contributi, reddImp, imposta, totale, netto };
 }
 
@@ -765,7 +883,7 @@ function calcola() {
   if (!atecoId) { alert('Seleziona un codice ATECO.'); return; }
   if (fatturato > 85000) { alert('Il fatturato supera il limite di € 85.000 del regime forfettario.'); return; }
 
-  const a = ATECO_DATA.find(x => x.id === atecoId);
+  const a  = ATECO_DATA.find(x => x.id === atecoId);
   const su = calcPeriodo(fatturato, a.coeff, gestione, true);
   const re = calcPeriodo(fatturato, a.coeff, gestione, false);
 
@@ -778,12 +896,12 @@ function calcola() {
 
   function rows(d, pct) {
     return mkRow('Fatturato lordo', fmt(fatturato))
-      + mkRow(`Reddito imponibile (coeff. ${(a.coeff*100).toFixed(0)}%)`, fmt(d.redditoBrutto))
+      + mkRow(`Imponibile (coeff. ${(a.coeff*100).toFixed(0)}%)`, fmt(d.redditoBrutto))
       + mkRow(`Contributi — ${gLabel}`, fmt(d.contributi))
-      + mkRow('Base imponibile (al netto contributi)', fmt(d.reddImp))
+      + mkRow('Base imponibile netta', fmt(d.reddImp))
       + mkRow(`Imposta sostitutiva (${pct})`, fmt(d.imposta))
       + mkRow('Totale versamenti', fmt(d.totale))
-      + mkRow('Reddito netto disponibile', fmt(d.netto), true);
+      + mkRow('Reddito netto', fmt(d.netto), true);
   }
 
   document.getElementById('rowsStartup').innerHTML = rows(su, '5%');
@@ -800,6 +918,13 @@ function calcola() {
   const banner = document.getElementById('savingBanner');
   banner.classList.remove('show');
   setTimeout(() => banner.classList.add('show'), 270);
+
+  // Scroll verso i risultati su mobile
+  if (window.innerWidth <= 680) {
+    setTimeout(() => {
+      document.getElementById('cardStartup').scrollIntoView({behavior:'smooth', block:'start'});
+    }, 100);
+  }
 }
 </script>
 </body>
